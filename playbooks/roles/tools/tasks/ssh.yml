@@ -1,0 +1,6 @@
+- name: install ssh keys and configs
+  tags: ssh
+  copy:
+    src: ssh/
+    dest: "{{ ansible_env.HOME }}/.ssh/"
+    mode: 0600

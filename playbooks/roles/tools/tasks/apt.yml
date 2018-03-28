@@ -1,0 +1,65 @@
+---
+- name: install essential packages and desktop environment
+  become: true
+  tags: apt
+  apt:
+    pkg: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+  - htop
+  - tmux
+  - git
+  - curl
+  - wget
+  - vim-gnome
+  - rsync
+  - ipython
+  - python-pip
+  - python3-pip
+  - python-dev
+  - build-essential
+  - xclip
+  - silversearcher-ag
+  - mlocate
+  - bzr
+  - zsh
+  - arc-theme
+  - aria2
+  - cinnamon-desktop-environment
+  - checkinstall
+  - fcitx-table-wubi
+  - fcitx-mozc
+  - tar
+  - unzip
+  - autojump
+  - fonts-wqy-microhei
+  - fonts-wqy-zenhei
+  - python-apt
+  - clang-format-3.9
+  - daemon
+  - nmap
+  - redis-server
+
+- name: add node repository signing key
+  become: true
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+
+- name: add node apt repositories
+  become: true
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    filename: "nodesource"
+  with_items:
+    - deb https://deb.nodesource.com/node_9.x stretch main
+    - deb-src https://deb.nodesource.com/node_9.x stretch main
+
+- name: install nodejs
+  become: true
+  apt:
+    pkg: nodejs
+    state: latest
+    update_cache: yes

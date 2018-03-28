@@ -1,0 +1,17 @@
+---
+- name: install essential node packages
+  become: true
+  npm:
+    name: "{{item}}"
+    global: yes
+    state: latest
+  with_items:
+    - nodemon
+    - tern
+    - eslint
+    - babel-eslint
+    - eslint-plugin-react
+    - js-beautify
+    - typescript
+    - tslint
+    - typescript-formatter

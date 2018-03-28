@@ -1,0 +1,5 @@
+---
+# playbook to setup everything on a new PC
+- hosts: all
+  roles:
+  - tools

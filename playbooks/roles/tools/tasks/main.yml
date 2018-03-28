@@ -1,0 +1,16 @@
+---
+- import_tasks: ssh.yml
+  tags: [ssh]
+- import_tasks: apt.yml
+  tags: [apt]
+- import_tasks: pip.yml
+  tags: [pip]
+- import_tasks: npm.yml
+  tags: [npm]
+- import_tasks: emacs.yml
+  tags: [emacs]
+- import_tasks: shell.yml
+  tags: [shell]
+- import_tasks: theme.yml
+  tags: [theme]
+

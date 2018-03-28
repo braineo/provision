@@ -1,0 +1,30 @@
+---
+- name: download icon set
+  git:
+    repo: git@github.com:LinxGem33/Arc-OSX-Icons.git
+    dest: "{{ ansible_env.HOME }}/dev/theme/Arc-OSX-Icons"
+
+- name: create icon folder
+  file:
+    path: "{{ ansible_env.HOME }}/.icons"
+    state: directory
+
+- name: copy icon set
+  shell: "cp -r {{ ansible_env.HOME }}/dev/theme/Arc-OSX-Icons/src/* {{ ansible_env.HOME }}/.icons/"
+
+- name: download gnome terminal theme dracula
+  git:
+    repo: git@github.com:dracula/gnome-terminal.git
+    dest: "{{ ansible_env.HOME }}/dev/theme/gnome-terminal-dracula"
+
+- name: install san francisco font
+  unarchive:
+    src: fonts/SanFranciscoFonts.tar.gz
+    dest: "{{ ansible_env.HOME }}/.fonts"
+  notify:
+    - rebuild font cache
+
+- name: config font preference
+  copy:
+    src: config/fontconfig/conf.d/64-language-selector-prefer.conf
+    dest: "{{ ansible_env.HOME }}/.config/fontconfig/conf.d/"

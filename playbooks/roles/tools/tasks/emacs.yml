@@ -1,0 +1,59 @@
+---
+- name: install build dep for emacs
+  become: true
+  apt:
+    pkg: emacs25
+    state: build-dep
+
+- name: pull emacs from git
+  git:
+    repo: git@github.com:emacs-mirror/emacs.git
+    dest: "{{ ansible_env.HOME }}/dev/source/emacs"
+    version: emacs-26
+
+- name: create build folder for emacs
+  file:
+    path: "{{ ansible_env.HOME }}/dev/source/emacs26"
+    state: directory
+
+- name: run emacs autogen
+  command: ./autogen.sh
+  args:
+    chdir: "{{ ansible_env.HOME }}/dev/source/emacs"
+
+- name: run emacs configure
+  command: ../emacs/configure
+  args:
+    chdir: "{{ ansible_env.HOME }}/dev/source/emacs26"
+
+- name: compile emacs
+  make:
+    chdir: "{{ ansible_env.HOME }}/dev/source/emacs26"
+
+- name: install emacs
+  become: true
+  command: checkinstall --fstrans=no --pkgname emacs26 --pkgversion 26.09 -y
+  args:
+    chdir: "{{ ansible_env.HOME }}/dev/source/emacs26"
+
+- name: remove dot emacs
+  file:
+    path: "{{ ansible_env.HOME }}/.emacs.d"
+    state: absent
+
+- name: pull spacemacs
+  git:
+    repo: git@github.com:braineo/spacemacs.git
+    dest: "{{ ansible_env.HOME }}/.emacs.d"
+    version: develop
+
+- name: pull spacemacs config
+  git:
+    repo: git@github.com:braineo/configs.git
+    dest: "{{ ansible_env.HOME }}/dev/configs"
+    version: master
+
+- name: link spacemacs config
+  command: bash ./install.sh
+  args:
+    chdir: "{{ ansible_env.HOME }}/dev/configs/emacs/spacemacs"

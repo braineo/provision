@@ -1,0 +1,20 @@
+---
+- name: install pip2 packages
+  become: true
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - psutil
+    - jedi
+    - json-rpc
+    - service_factory
+    - flake8
+
+- name: install pip3 packages
+  pip:
+    name: "{{ item }}"
+    executable: pip3
+  with_items:
+    - thefuck
+
+
