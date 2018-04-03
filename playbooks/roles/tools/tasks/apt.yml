@@ -40,6 +40,7 @@
   - daemon
   - nmap
   - redis-server
+  - stow
 
 - name: add node repository signing key
   become: true

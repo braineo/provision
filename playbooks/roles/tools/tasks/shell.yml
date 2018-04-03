@@ -34,13 +34,13 @@
 
 - name: create folder for source code pro
   file:
-    path: "{{ ansible_env.HOME }}/dev/fonts/source-code-pro"
+    path: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
     state: directory
 
 - name: download source code pro font
   unarchive:
     src: https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
-    dest: "{{ ansible_env.HOME }}/dev/fonts/source-code-pro"
+    dest: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
     remote_src: yes
     extra_opts: [--strip-components=1]
 
@@ -50,20 +50,20 @@
     state: directory
 
 - name: install source code pro font
-  shell: "cp {{ ansible_env.HOME }}/dev/fonts/source-code-pro/OTF/* {{ ansible_env.HOME }}/.fonts/"
+  shell: "cp {{ ansible_env.HOME }}/Develop/fonts/source-code-pro/OTF/* {{ ansible_env.HOME }}/.fonts/"
   notify:
     - rebuild font cache
 
 - name: pull terminator
   command: bzr branch lp:terminator
   args:
-    chdir: "{{ ansible_env.HOME }}/dev/source"
+    chdir: "{{ ansible_env.HOME }}/Develop/source"
 
 - name: install terminator
   become: true
   command: ./setup.py install --record=install-files.txt
   args:
-    chdir: "{{ ansible_env.HOME }}/dev/source/terminator"
+    chdir: "{{ ansible_env.HOME }}/Develop/source/terminator"
 
 - name: config terminator
   copy:
