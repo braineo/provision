@@ -19,8 +19,8 @@
 
 - name: install zsh-syntax-highlighting
   git:
-    repo: git@github.com:zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    repo: https://github.com/zdharma/fast-syntax-highlighting.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/fast-syntax-highlighting"
 
 - name: install zsh theme powerlevel9k
   git:
@@ -31,28 +31,6 @@
   git:
     repo: git@github.com:Bash-it/bash-it.git
     dest: "{{ ansible_env.HOME }}/.bash_it"
-
-- name: create folder for source code pro
-  file:
-    path: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
-    state: directory
-
-- name: download source code pro font
-  unarchive:
-    src: https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
-    dest: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
-    remote_src: yes
-    extra_opts: [--strip-components=1]
-
-- name: create dot font folder
-  file:
-    path: "{{ ansible_env.HOME }}/.fonts"
-    state: directory
-
-- name: install source code pro font
-  shell: "cp {{ ansible_env.HOME }}/Develop/fonts/source-code-pro/OTF/* {{ ansible_env.HOME }}/.fonts/"
-  notify:
-    - rebuild font cache
 
 - name: pull terminator
   command: bzr branch lp:terminator

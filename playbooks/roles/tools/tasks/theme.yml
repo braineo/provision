@@ -18,9 +18,36 @@
     dest: "{{ ansible_env.HOME }}/Develop/theme/gnome-terminal-dracula"
 
 - name: install san francisco font
+  become: true
   unarchive:
     src: fonts/SanFranciscoFonts.tar.gz
-    dest: "{{ ansible_env.HOME }}/.fonts"
+    dest: "{{ font_dir }}"
+  notify:
+    - rebuild font cache
+
+- name: install fira code font
+  become: true
+  unarchive:
+    src: fonts/FiraCodeFonts.tar.gz
+    dest: "{{ font_dir }}"
+  notify:
+    - rebuild font cache
+
+- name: create folder for source code pro
+  file:
+    path: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
+    state: directory
+
+- name: download source code pro font
+  unarchive:
+    src: https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
+    dest: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
+    remote_src: yes
+    extra_opts: [--strip-components=1]
+
+- name: install source code pro font
+  become: true
+  shell: "cp {{ ansible_env.HOME }}/Develop/fonts/source-code-pro/OTF/* {{ font_dir }}"
   notify:
     - rebuild font cache
 
