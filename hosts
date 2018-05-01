@@ -1,3 +1,9 @@
-[targets]
-localhost ansible_connection=local
-hostname_here ansible_connection=ssh ansible_user=username_here
+targets:
+  hosts:
+    localhost:
+      ansible_connection: local
+    remote_hostname:
+      ansible_connection: ssh
+      ansible_user: username
+  vars:
+    font_dir: /usr/local/share/fonts
