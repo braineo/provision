@@ -17,6 +17,11 @@
     repo: git@github.com:zsh-users/zsh-completions.git
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-completions"
 
+- name: install z
+  git:
+    repo: https://github.com/rupa/z.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/z"
+
 - name: install zsh-syntax-highlighting
   git:
     repo: https://github.com/zdharma/fast-syntax-highlighting.git

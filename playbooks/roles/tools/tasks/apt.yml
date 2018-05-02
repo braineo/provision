@@ -10,6 +10,7 @@
   - htop
   - tmux
   - git
+  - tig
   - curl
   - wget
   - vim-gnome
@@ -32,7 +33,6 @@
   - fcitx-mozc
   - tar
   - unzip
-  - autojump
   - fonts-wqy-microhei
   - fonts-wqy-zenhei
   - python-apt
@@ -41,6 +41,8 @@
   - nmap
   - redis-server
   - stow
+  - lnav
+  - realpath
 
 - name: add node repository signing key
   become: true
