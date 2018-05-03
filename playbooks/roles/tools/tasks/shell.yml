@@ -6,31 +6,11 @@
   with_fileglob:
     - home/.*
 
-- name: install oh-my-zsh
+- name: install zplug
   git:
-    repo: git@github.com:robbyrussell/oh-my-zsh.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+    repo: git clone https://github.com/zplug/zplug.git
+    dest: "{{ ansible_env.HOME }}/.zplug"
     version: master
-
-- name: install zsh-completions
-  git:
-    repo: git@github.com:zsh-users/zsh-completions.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-completions"
-
-- name: install z
-  git:
-    repo: https://github.com/rupa/z.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/z"
-
-- name: install zsh-syntax-highlighting
-  git:
-    repo: https://github.com/zdharma/fast-syntax-highlighting.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/fast-syntax-highlighting"
-
-- name: install zsh theme powerlevel9k
-  git:
-    repo: git@github.com:bhilburn/powerlevel9k.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel9k"
 
 - name: install bash-it
   git:
