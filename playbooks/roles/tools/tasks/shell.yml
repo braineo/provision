@@ -6,10 +6,10 @@
   with_fileglob:
     - home/.*
 
-- name: install zplug
+- name: install zim
   git:
-    repo: git clone https://github.com/zplug/zplug.git
-    dest: "{{ ansible_env.HOME }}/.zplug"
+    repo: https://github.com/zimfw/zimfw.git
+    dest: "{{ ansible_env.HOME }}/.zim"
     version: master
 
 - name: install bash-it
