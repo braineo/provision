@@ -1,6 +1,20 @@
+---
+# Should only execute deploying a remote host
+
+- name: check local ssh folder
+  local_action: stat path=~/.ssh
+  register: has_ssh_config
+
+- debug:
+    msg: "SSH config not copied to {{ ansible_hostname }} because cannot find in local folder"
+  when:
+    - has_ssh_config.stat.exists == False
+
 - name: install ssh keys and configs
   tags: ssh
+  when:
+    - has_ssh_config.stat.exists
   copy:
-    src: ssh/
+    src: ~/.ssh
     dest: "{{ ansible_env.HOME }}/.ssh/"
     mode: 0600
