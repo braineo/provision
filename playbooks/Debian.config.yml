@@ -40,4 +40,5 @@ apt_packages:
   - name: emacs25
     state: build-dep
 
-
+extra_dotfiles:
+  - terminator

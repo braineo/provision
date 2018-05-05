@@ -25,3 +25,8 @@ npm_packages:
   - typescript
   - tslint
   - typescript-formatter
+
+dotfiles:
+  - zim
+  - spacemacs
+  - flake8

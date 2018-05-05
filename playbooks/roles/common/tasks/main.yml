@@ -1,0 +1,11 @@
+---
+- import_tasks: ssh.yml
+  tags: [ssh]
+  when:
+    - ansible_host != "localhost"
+- import_tasks: pip.yml
+  tags: [pip]
+- import_tasks: npm.yml
+  tags: [npm]
+- import_tasks: dotfiles.yml
+  tags: [dotfiles]

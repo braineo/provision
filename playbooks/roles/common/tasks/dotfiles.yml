@@ -1,0 +1,20 @@
+---
+- debug:
+    msg: " {{ ansible_os_family }}, {{ ansible_distribution }}, {{ ansible_host }}"
+
+- debug:
+    msg: "{{ dotfiles }} + {{ extra_dotfiles }}"
+
+- name: pull dotfiles
+  git:
+    repo: git@github.com:braineo/configs.git
+    dest: "{{ ansible_env.HOME }}{{ clone_dir }}/configs"
+    version: master
+
+- name: link dotfiles
+  make:
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/configs/"
+    target: install
+    params:
+      TARGET: "{{ item }}"
+  with_items: "{{ dotfiles }} + {{ extra_dotfiles }}"

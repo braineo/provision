@@ -46,15 +46,3 @@
     repo: git@github.com:braineo/spacemacs.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
     version: develop
-
-- name: pull spacemacs config
-  git:
-    repo: git@github.com:braineo/configs.git
-    dest: "{{ ansible_env.HOME }}{{ clone_dir }}/configs"
-    version: master
-
-- name: link spacemacs config
-  command: stow spacemacs -t "{{ ansible_env.HOME }}"
-  # tags: debug
-  args:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/configs/"
