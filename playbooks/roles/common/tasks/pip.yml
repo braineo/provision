@@ -1,6 +1,6 @@
 ---
 - name: install pip2 packages
-  become: true
+  become: "{{ ansible_distribution != 'MacOSX' }}"
   pip:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
