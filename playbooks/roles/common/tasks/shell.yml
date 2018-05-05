@@ -8,7 +8,7 @@
 
 - name: install zim
   git:
-    repo: https://github.com/zimfw/zimfw.git
+    repo: git@github.com:braineo/zimfw.git
     dest: "{{ ansible_env.HOME }}/.zim"
     version: master
 

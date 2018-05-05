@@ -8,4 +8,5 @@
     - include_vars: "{{ ansible_distribution }}.config.yml"
 
   roles:
+    - common
     - tools
