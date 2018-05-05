@@ -16,19 +16,3 @@
   git:
     repo: git@github.com:Bash-it/bash-it.git
     dest: "{{ ansible_env.HOME }}/.bash_it"
-
-- name: pull terminator
-  command: bzr branch lp:terminator
-  args:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source"
-
-- name: install terminator
-  become: true
-  command: ./setup.py install --record=install-files.txt
-  args:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/terminator"
-
-- name: config terminator
-  copy:
-    src: config/terminator/config
-    dest: "{{ ansible_env.HOME }}/.config/terminator/"
