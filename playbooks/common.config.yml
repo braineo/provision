@@ -14,3 +14,14 @@ pip2_packages:
   - json-rpc
   - service_factory
   - flake8
+
+npm_packages:
+  - nodemon
+  - tern
+  - eslint
+  - babel-eslint
+  - eslint-plugin-react
+  - js-beautify
+  - typescript
+  - tslint
+  - typescript-formatter
