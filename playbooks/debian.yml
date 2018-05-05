@@ -1,5 +1,11 @@
 ---
-# playbook to setup everything on a new PC
 - hosts: all
+
+  vars_files:
+    - common.config.yml
+
+  pre_tasks:
+    - include_vars: "{{ ansible_distribution }}.config.yml"
+
   roles:
-  - tools
+    - tools

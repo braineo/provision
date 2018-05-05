@@ -2,19 +2,16 @@
 - name: install pip2 packages
   become: true
   pip:
-    name: "{{ item }}"
-  with_items:
-    - psutil
-    - jedi
-    - json-rpc
-    - service_factory
-    - flake8
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    executable: "{{ item.executable | default('pip2') }}"
+  with_items: "{{ pip2_packages }}"
 
 - name: install pip3 packages
   pip:
-    name: "{{ item }}"
-    executable: pip3
-  with_items:
-    - thefuck
-
-
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    executable: "{{ item.executable | default('pip3') }}"
+  with_items: "{{ pip3_packages }}"
