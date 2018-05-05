@@ -1,0 +1,15 @@
+---
+
+pip3_packages:
+  # Can have more options for state, version and pip executable
+  # - name: thefuck
+  #   version: 0.1
+  #   executable: 'path/to/pip3'
+  - thefuck
+
+pip2_packages:
+  - psutil
+  - jedi
+  - json-rpc
+  - service_factory
+  - flake8

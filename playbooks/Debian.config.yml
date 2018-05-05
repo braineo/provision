@@ -1,0 +1,43 @@
+---
+apt_packages:
+  - htop
+  - tmux
+  - git
+  - tig
+  - curl
+  - wget
+  - vim-gnome
+  - rsync
+  - ipython
+  - python-pip
+  - python3-pip
+  - python-dev
+  - build-essential
+  - xclip
+  - silversearcher-ag
+  - mlocate
+  - bzr
+  - zsh
+  - arc-theme
+  - aria2
+  - cinnamon-desktop-environment
+  - checkinstall
+  - fcitx-table-wubi
+  - fcitx-mozc
+  - tar
+  - unzip
+  - fonts-wqy-microhei
+  - fonts-wqy-zenhei
+  - python-apt
+  - clang-format-3.9
+  - daemon
+  - nmap
+  - redis-server
+  - stow
+  - lnav
+  - realpath
+  - nodejs
+  - name: emacs25
+    state: build-dep
+
+
