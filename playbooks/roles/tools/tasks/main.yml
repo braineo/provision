@@ -1,6 +1,8 @@
 ---
 - import_tasks: ssh.yml
   tags: [ssh]
+  when:
+    - ansible_host != "localhost"
 - import_tasks: apt.yml
   tags: [apt]
 - import_tasks: pip.yml
