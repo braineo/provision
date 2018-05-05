@@ -2,7 +2,7 @@
 - name: download icon set
   git:
     repo: git@github.com:LinxGem33/Arc-OSX-Icons.git
-    dest: "{{ ansible_env.HOME }}/Develop/theme/Arc-OSX-Icons"
+    dest: "{{ ansible_env.HOME }}{{ clone_dir }}/theme/Arc-OSX-Icons"
 
 - name: create icon folder
   file:
@@ -10,12 +10,12 @@
     state: directory
 
 - name: copy icon set
-  shell: "cp -r {{ ansible_env.HOME }}/Develop/theme/Arc-OSX-Icons/src/* {{ ansible_env.HOME }}/.icons/"
+  shell: "cp -r {{ ansible_env.HOME }}{{ clone_dir }}/theme/Arc-OSX-Icons/src/* {{ ansible_env.HOME }}/.icons/"
 
 - name: download gnome terminal theme dracula
   git:
     repo: git@github.com:dracula/gnome-terminal.git
-    dest: "{{ ansible_env.HOME }}/Develop/theme/gnome-terminal-dracula"
+    dest: "{{ ansible_env.HOME }}{{ clone_dir }}/theme/gnome-terminal-dracula"
 
 - name: install san francisco font
   become: true
@@ -35,19 +35,19 @@
 
 - name: create folder for source code pro
   file:
-    path: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
+    path: "{{ ansible_env.HOME }}{{ clone_dir }}/fonts/source-code-pro"
     state: directory
 
 - name: download source code pro font
   unarchive:
     src: https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
-    dest: "{{ ansible_env.HOME }}/Develop/fonts/source-code-pro"
+    dest: "{{ ansible_env.HOME }}{{ clone_dir }}/fonts/source-code-pro"
     remote_src: yes
     extra_opts: [--strip-components=1]
 
 - name: install source code pro font
   become: true
-  shell: "cp {{ ansible_env.HOME }}/Develop/fonts/source-code-pro/OTF/* {{ font_dir }}"
+  shell: "cp {{ ansible_env.HOME }}{{ clone_dir }}/fonts/source-code-pro/OTF/* {{ font_dir }}"
   notify:
     - rebuild font cache
 

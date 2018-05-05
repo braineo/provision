@@ -1,4 +1,5 @@
 ---
+clone_dir: "/Develop"
 
 pip3_packages:
   # Can have more options for state, version and pip executable

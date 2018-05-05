@@ -20,13 +20,13 @@
 - name: pull terminator
   command: bzr branch lp:terminator
   args:
-    chdir: "{{ ansible_env.HOME }}/Develop/source"
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source"
 
 - name: install terminator
   become: true
   command: ./setup.py install --record=install-files.txt
   args:
-    chdir: "{{ ansible_env.HOME }}/Develop/source/terminator"
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/terminator"
 
 - name: config terminator
   copy:
