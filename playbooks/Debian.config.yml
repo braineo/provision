@@ -37,6 +37,8 @@ apt_packages:
   - lnav
   - realpath
   - nodejs
+  - highlight
+  - tree
   - name: emacs25
     state: build-dep
 

@@ -1,10 +1,4 @@
 ---
-- name: install build dep for emacs
-  become: true
-  apt:
-    pkg: emacs25
-    state: build-dep
-
 - name: pull emacs from git
   git:
     repo: git@github.com:emacs-mirror/emacs.git
