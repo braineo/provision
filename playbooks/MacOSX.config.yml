@@ -1,2 +1,26 @@
 ---
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/fonts
+  - d12frosted/emacs-plus
+
+homebrew_packages:
+  - node
+  - git
+  - htop
+  - tig
+  - zsh
+  - stow
+  - bash
+  - nmap
+  - cmake
+  - gnu-tar
+  - gnu-sed
+  - gnutls
+  - coreutils
+  - the_silver_searcher
+  - { name: emacs-plus, install_options: devel,without-spacemacs-icon }
+
+homebrew_cask_packages: []
+
 extra_dotfiles: []

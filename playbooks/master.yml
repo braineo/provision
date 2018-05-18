@@ -8,5 +8,6 @@
     - include_vars: "{{ ansible_distribution }}.config.yml"
 
   roles:
-    - common
     - { role: debian, when: ansible_distribution == 'Debian' }
+    - { role: macos, when: ansible_distribution == 'MacOSX'}
+    - common
