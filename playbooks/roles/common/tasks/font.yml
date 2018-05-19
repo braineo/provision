@@ -1,0 +1,4 @@
+- name: install fira code font
+  unarchive:
+    src: fonts/FiraCodeFonts.tar.gz
+    dest: "{{ ansible_env.HOME }}{{ font_dir }}"

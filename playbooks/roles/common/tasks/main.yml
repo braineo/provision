@@ -9,3 +9,5 @@
   tags: [npm]
 - import_tasks: dotfiles.yml
   tags: [dotfiles]
+- import_tasks: font.yml
+  tags: [font]

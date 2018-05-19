@@ -1,4 +1,7 @@
 ---
+# path are relative to home {{ ansible_env.HOME }}{{ font_dir }}
+font_dir: /.local/share/fonts
+
 apt_packages:
   - htop
   - tmux

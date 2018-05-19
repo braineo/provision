@@ -1,4 +1,7 @@
 ---
+# path are relative to home {{ ansible_env.HOME }}{{ font_dir }}
+font_dir: /Library/Fonts
+
 homebrew_taps:
   - caskroom/cask
   - caskroom/fonts

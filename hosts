@@ -5,5 +5,3 @@ targets:
     remote_hostname:
       ansible_connection: ssh
       ansible_user: username
-  vars:
-    font_dir: /usr/local/share/fonts
