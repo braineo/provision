@@ -24,6 +24,7 @@ homebrew_packages:
   - the_silver_searcher
   - { name: emacs-plus, install_options: [devel,without-spacemacs-icon] }
 
-homebrew_cask_packages: []
+homebrew_cask_packages:
+  - caskroom/fonts/font-sourcecodepro-nerd-font
 
 extra_dotfiles: []
