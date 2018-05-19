@@ -19,7 +19,7 @@ homebrew_packages:
   - gnutls
   - coreutils
   - the_silver_searcher
-  - { name: emacs-plus, install_options: devel,without-spacemacs-icon }
+  - { name: emacs-plus, install_options: [devel,without-spacemacs-icon] }
 
 homebrew_cask_packages: []
 

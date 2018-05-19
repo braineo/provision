@@ -3,13 +3,15 @@
     tap: "{{ item }}"
   with_items: "{{ homebrew_taps }}"
 
+- name: Upgrade all homebrew packages (if configured).
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
 - name: install brew packages
   homebrew:
     name: "{{ item.name | default(item) }}"
     install_options: "{{ item.install_options | default() }}"
     state: "{{ item.state | default('latest') }}"
-    update_homebrew: yes
-    upgrade_all: yes
   with_items: "{{ homebrew_packages }}"
-    
 

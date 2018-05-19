@@ -1,4 +1,4 @@
 ---
 - import_tasks: brew.yml
   tags:
-    -brew
+    - brew
