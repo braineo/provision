@@ -6,6 +6,7 @@
 
   pre_tasks:
     - include_vars: "{{ ansible_distribution }}.config.yml"
+      tags: always
 
   roles:
     - { role: debian, when: ansible_distribution == 'Debian' }
