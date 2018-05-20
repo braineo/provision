@@ -1,2 +1,3 @@
 *.retry
 playbooks/roles/tools/files/ssh/*
+playbooks/vars/user.yml

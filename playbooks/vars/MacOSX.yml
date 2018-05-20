@@ -16,15 +16,19 @@ homebrew_packages:
   - stow
   - bash
   - nmap
+  - tree
   - cmake
   - gnu-tar
   - gnu-sed
   - gnutls
   - coreutils
+  - shellcheck
   - the_silver_searcher
   - { name: emacs-plus, install_options: [devel,without-spacemacs-icon] }
 
 homebrew_cask_packages:
+  - iterm2
+  - hyper
   - caskroom/fonts/font-sourcecodepro-nerd-font
 
 extra_dotfiles: []

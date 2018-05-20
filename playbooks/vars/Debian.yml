@@ -40,6 +40,7 @@ apt_packages:
   - nodejs
   - highlight
   - tree
+  - shellcheck
   - name: emacs25
     state: build-dep
 

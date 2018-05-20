@@ -1,0 +1,21 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[user]
+	name = {{ git_full_name }}
+	email = {{ git_email }}
+[push]
+	default = simple
+[pull]
+	rebase = true
+[rebase]
+	stat = true
+	autostash = true
+	missingcommitcheck = warn
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[color]
+	status = auto
+	branch = auto
+	diff   = auto
+	ui     = auto
