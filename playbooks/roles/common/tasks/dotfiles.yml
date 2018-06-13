@@ -1,4 +1,11 @@
 ---
+
+- name: create gitconfig from templates
+  template:
+    src: gitconfig.j2
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: 0644
+
 - name: pull dotfiles
   git:
     repo: git@github.com:braineo/configs.git
@@ -12,9 +19,3 @@
     params:
       TARGET: "{{ item }}"
   with_items: "{{ dotfiles }} + {{ extra_dotfiles }}"
-
-- name: create gitconfig from templates
-  template:
-    src: gitconfig.j2
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
-    mode: 0644
