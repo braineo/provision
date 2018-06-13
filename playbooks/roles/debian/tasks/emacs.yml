@@ -3,32 +3,32 @@
   git:
     repo: git@github.com:emacs-mirror/emacs.git
     dest: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs"
-    version: emacs-26
+    version: master
 
 - name: create build folder for emacs
   file:
-    path: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs26"
+    path: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs_build"
     state: directory
 
 - name: run emacs autogen
   command: ./autogen.sh
   args:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs"
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs_build"
 
 - name: run emacs configure
   command: ../emacs/configure
   args:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs26"
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs_build"
 
 - name: compile emacs
   make:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs26"
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs_build"
 
 - name: install emacs
   become: true
-  command: checkinstall --fstrans=no --pkgname emacs26 --pkgversion 26.1 -y
+  command: checkinstall --fstrans=no --pkgname emacs27 --pkgversion 27.05 -y
   args:
-    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs26"
+    chdir: "{{ ansible_env.HOME }}{{ clone_dir }}/source/emacs_build"
 
 - name: remove dot emacs
   file:
