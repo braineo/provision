@@ -17,6 +17,11 @@
     repo: git@github.com:dracula/gnome-terminal.git
     dest: "{{ ansible_env.HOME }}{{ clone_dir }}/theme/gnome-terminal-dracula"
 
+- name: create font folder if not exist
+  file:
+    path: "{{ ansible_env.HOME }}{{ font_dir }}"
+    state: directory
+
 - name: install san francisco font
   unarchive:
     src: fonts/SanFranciscoFonts.tar.gz
