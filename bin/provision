@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# set -e
+
+OPTS=`getopt -o r: -l target:,tags:: -n 'provision.bash' -- "$@"`
+eval set -- "$OPTS"
+
+while true; do
+    case "$1" in
+        -r | --target)
+            TARGET=$2 ; shift 2 ;;
+        --tags)
+            case "$2" in
+                "") shift 2 ;;
+                *) TAGS=$2 ; shift 2 ;;
+            esac ;;
+        --) shift ; break ;;
+        *) echo "Internal error!"; exit 1 ;;
+    esac
+done
+
+IFS='@' read -a REMOTE <<< ${TARGET}
+
+if [[ ${#REMOTE[@]} == 2 ]]; then
+    REMOTE_USER=${REMOTE[0]}
+    HOSTNAME=${REMOTE[1]}
+elif [[ ${#REMOTE[@]} == 1 ]]; then
+    HOSTNAME=${REMOTE[0]}
+fi
+
+echo $HOMENAME
+
+# Disable echo.
+stty -echo
+
+# Set up trap to ensure echo is enabled before exiting if the script
+# is terminated while echo is disabled.
+trap 'stty echo' EXIT
+
+read -s -p "Privilege escalation password: " PASSWORD
+
+# Enable echo.
+stty echo
+trap - EXIT
+# New line
+echo
+
+if ! command -v ansible-playbook > /dev/null 2>&1; then
+    echo "ansible-playbook is not install"
+    exit 1
+fi
+
+OPTIONS=()
+
+if [[ ! -z $REMOTE_USER ]]; then
+    OPTIONS+=("--user=${REMOTE_USER}")
+fi
+
+if [[ ! -z $PASSWORD ]]; then
+    OPTIONS+=("--extra-vars='ansible_become_pass=${PASSWORD}'")
+fi
+
+if [[ ! -z $TAGS ]]; then
+    OPTIONS+=("--tags=$TAGS")
+fi
+
+if [[ ${HOSTNAME,,} == localhost  ]]; then
+    OPTIONS+=("--connection=local")
+fi
+
+echo ansible-playbook -i ${HOSTNAME}, playbooks/master.yml "${OPTIONS[@]}"
+ansible-playbook -i ${HOSTNAME}, playbooks/master.yml "${OPTIONS[@]}"
