@@ -41,6 +41,7 @@ apt_packages:
   - highlight
   - tree
   - shellcheck
+  - shutter
   - name: emacs25
     state: build-dep
 
