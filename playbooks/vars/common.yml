@@ -25,6 +25,7 @@ npm_packages:
   - typescript
   - tslint
   - typescript-formatter
+  - prettier
 
 dotfiles:
   - zim
