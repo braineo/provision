@@ -7,4 +7,5 @@
   tags: [shell]
 - import_tasks: theme.yml
   tags: [theme]
-
+- import_tasks: font.yml
+  tags: [font]
