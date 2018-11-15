@@ -31,3 +31,4 @@ dotfiles:
   - zim
   - spacemacs
   - flake8
+  - tig
