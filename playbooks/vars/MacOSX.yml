@@ -6,6 +6,7 @@ homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
   - d12frosted/emacs-plus
+  - buo/cask-upgrade
 
 homebrew_packages:
   - node
@@ -24,11 +25,31 @@ homebrew_packages:
   - coreutils
   - shellcheck
   - the_silver_searcher
-  - { name: emacs-plus, install_options: [devel,without-spacemacs-icon] }
+  - { name: emacs-plus, install_options: [without-spacemacs-icon] }
 
 homebrew_cask_packages:
   - iterm2
   - hyper
   - caskroom/fonts/font-sourcecodepro-nerd-font
+  - appcleaner
+  - shadowsocksx-ng
+  - bathyscaphe
+  - skype
+  - vnc-viewer
+  - chromedriver
+  - google-chrome
+  - mattermost
+  - wireshark
+  - dropbox
+  - musicbrainz-picard
+  - xld
+  - postman
+  - sublime-text
+  - yacreader
+  - typora
+  - iina
+  - mactex-no-gui
+  # - squirrel # require password interrupting install
 
-extra_dotfiles: []
+extra_dotfiles:
+  - squirrel
