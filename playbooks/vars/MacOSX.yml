@@ -25,6 +25,7 @@ homebrew_packages:
   - coreutils
   - shellcheck
   - the_silver_searcher
+  - ripgrep
   - { name: emacs-plus, install_options: [without-spacemacs-icon] }
 
 homebrew_cask_packages:
