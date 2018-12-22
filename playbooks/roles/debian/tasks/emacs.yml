@@ -35,8 +35,8 @@
     path: "{{ ansible_env.HOME }}/.emacs.d"
     state: absent
 
-- name: pull spacemacs
+- name: pull fate-emacs
   git:
-    repo: git@github.com:braineo/spacemacs.git
+    repo: git@github.com:braineo/fate-emacs.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
-    version: develop
+    version: master

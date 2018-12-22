@@ -29,6 +29,5 @@ npm_packages:
 
 dotfiles:
   - zim
-  - spacemacs
   - flake8
   - tig
