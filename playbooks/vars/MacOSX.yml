@@ -12,6 +12,7 @@ homebrew_packages:
   - node
   - git
   - htop
+  - glances    # fancy but slow htop
   - tig
   - zsh
   - stow
@@ -23,9 +24,21 @@ homebrew_packages:
   - gnu-sed
   - gnutls
   - coreutils
+  - wget
   - shellcheck
-  - the_silver_searcher
-  - ripgrep
+  - ripgrep    # super fast grep
+  - bat        # better cat
+  - prettyping # fancier ping
+  - fd         # replacement for find
+  - ncdu       # improved du
+  - jq         # CLI json processor
+  - httpie     # eaiser to use curl
+  - youtube-dl
+  - python
+  - ipython
+  - python@2
+  - ipython@5
+  - vim
   - { name: emacs-plus, install_options: [without-spacemacs-icon] }
 
 homebrew_cask_packages:
