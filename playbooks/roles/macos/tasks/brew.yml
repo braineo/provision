@@ -9,6 +9,7 @@
     upgrade_all: yes
 
 - name: install brew packages
+  tags: brew-packages
   homebrew:
     name: "{{ item.name | default(item) }}"
     install_options: "{{ item.install_options | default() }}"
@@ -17,7 +18,7 @@
 
 
 - name: install brew cask packages
-  tags: debug
+  tags: brew-cask
   homebrew_cask:
     name: "{{ item.name | default(item) }}"
   with_items: "{{ homebrew_cask_packages }}"
