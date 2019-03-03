@@ -27,7 +27,7 @@ elif [[ ${#REMOTE[@]} == 1 ]]; then
     HOSTNAME=${REMOTE[0]}
 fi
 
-echo $HOMENAME
+echo $HOSTNAME
 
 # Disable echo.
 stty -echo
@@ -64,7 +64,7 @@ if [[ ! -z $TAGS ]]; then
 fi
 
 # Parameter Expansion ${var,,} change text to lower case
-if [[ ${HOSTNAME,,} == localhost ]] || [[ -z ${HOMENAME} ]]; then
+if [[ ${HOSTNAME,,} == localhost ]] || [[ -z ${HOSTNAME} ]]; then
     OPTIONS+=("--connection=local")
 fi
 
