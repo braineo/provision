@@ -11,3 +11,5 @@
   tags: [dotfiles]
 - import_tasks: font.yml
   tags: [font]
+- import_tasks: emacs.yml
+  tags: [emacs]

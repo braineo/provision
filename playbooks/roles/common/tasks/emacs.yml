@@ -1,0 +1,6 @@
+---
+- name: pull fate-emacs
+  git:
+    repo: git@github.com:braineo/fate-emacs.git
+    dest: "{{ ansible_env.HOME }}/.emacs.d"
+    version: master
