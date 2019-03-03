@@ -1,0 +1,33 @@
+---
+# path are relative to home {{ ansible_env.HOME }}{{ font_dir }}
+font_dir: /.local/share/fonts
+
+pacman_packages:
+  - htop
+  - git
+  - gcc
+  - tig
+  - curl
+  - wget
+  - rsync
+  - ipython
+  - python-pip
+  - xclip
+  - mlocate
+  - zsh
+  - aria2
+  - fcitx-mozc
+  - tar
+  - unzip
+  - nmap
+  - stow
+  - nodejs
+  - highlight
+  - tree
+  - shellcheck
+  - emacs
+  - vim
+  - tilix
+
+extra_dotfiles:
+  - terminator

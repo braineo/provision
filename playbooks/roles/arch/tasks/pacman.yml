@@ -1,0 +1,9 @@
+---
+- name: install essential packages
+  become: true
+  tags: pacman
+  pacman:
+    name: git
+    # name: '{{ pacman_packages }}'
+    state: latest
+    # update_cache: true

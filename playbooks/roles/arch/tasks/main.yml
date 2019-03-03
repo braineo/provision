@@ -1,0 +1,3 @@
+---
+- import_tasks: pacman.yml
+  tags: [pacman]
