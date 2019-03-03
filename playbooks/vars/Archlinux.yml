@@ -22,6 +22,7 @@ pacman_packages:
   - nmap
   - stow
   - nodejs
+  - npm
   - highlight
   - tree
   - shellcheck
