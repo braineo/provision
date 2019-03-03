@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # set -e
 
-OPTS=`getopt -o r: -l target:,tags:: -n 'provision.bash' -- "$@"`
+OPTS=$(getopt -o r: -l target:,tags:: -n 'provision.bash' -- "$@")
 eval set -- "$OPTS"
 
 while true; do
@@ -27,7 +27,7 @@ elif [[ ${#REMOTE[@]} == 1 ]]; then
     HOSTNAME=${REMOTE[0]}
 fi
 
-echo $HOSTNAME
+echo "$HOSTNAME"
 
 # Disable echo.
 stty -echo
@@ -51,15 +51,15 @@ fi
 
 OPTIONS=()
 
-if [[ ! -z $REMOTE_USER ]]; then
+if [[ -n $REMOTE_USER ]]; then
     OPTIONS+=("--user=${REMOTE_USER}")
 fi
 
-if [[ ! -z $PASSWORD ]]; then
+if [[ -n $PASSWORD ]]; then
     OPTIONS+=("--extra-vars='ansible_become_pass=${PASSWORD}'")
 fi
 
-if [[ ! -z $TAGS ]]; then
+if [[ -n $TAGS ]]; then
     OPTIONS+=("--tags=$TAGS")
 fi
 
