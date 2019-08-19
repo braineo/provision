@@ -1,8 +1,9 @@
 ---
 # Should only execute deploying a remote host
 
-- name: check local ssh folder
-  local_action: stat path=~/.ssh
+
+- stat:
+    path: ~/.ssh
   register: has_ssh_config
 
 - debug:
