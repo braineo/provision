@@ -32,8 +32,8 @@ define help_string
 ${blue}Provision with basic necessary development environment${end}
 ${whiteb}Usage:${end}
   make install ${green}- install to localhost${end}
-  make TARGET=user@hostname TAGS=font ${green}- install with options${end}
-
+  make TARGET=user@hostname TAGS=font install ${green}- install with options${end}
+  make DEBUG=1 install ${green}- turn on verbose message${end}
 endef
 export help_string
 .PHONY: help
