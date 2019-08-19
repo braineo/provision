@@ -68,5 +68,9 @@ if [[ ${HOSTNAME,,} == localhost ]] || [[ -z ${HOSTNAME} ]]; then
     OPTIONS+=("--connection=local")
 fi
 
+if [[ -n $DEBUG ]]; then
+    OPTIONS+=("-vvv")
+fi
+
 echo ansible-playbook -i ${HOSTNAME}, playbooks/master.yml "${OPTIONS[@]/$PASSWORD/******}"
-ansible-playbook -i ${HOSTNAME}, playbooks/master.yml "${OPTIONS[@]}"
+ansible-playbook -i ${HOSTNAME}, playbooks/master.yml --ask-become-pass "${OPTIONS[@]}"
