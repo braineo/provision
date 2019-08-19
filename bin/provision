@@ -36,7 +36,7 @@ stty -echo
 # is terminated while echo is disabled.
 trap 'stty echo' EXIT
 
-read -s -p "Privilege escalation password: " PASSWORD
+# read -s -p "Privilege escalation password: " PASSWORD
 
 # Enable echo.
 stty echo
@@ -55,9 +55,9 @@ if [[ -n $REMOTE_USER ]]; then
     OPTIONS+=("--user=${REMOTE_USER}")
 fi
 
-if [[ -n $PASSWORD ]]; then
-    OPTIONS+=("--extra-vars='ansible_become_pass=${PASSWORD}'")
-fi
+# if [[ -n $PASSWORD ]]; then
+#     OPTIONS+=("--extra-vars='ansible_become_pass=${PASSWORD}'")
+# fi
 
 if [[ -n $TAGS ]]; then
     OPTIONS+=("--tags=$TAGS")
