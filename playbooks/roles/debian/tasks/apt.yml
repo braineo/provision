@@ -12,8 +12,22 @@
     state: present
     filename: "nodesource"
   with_items:
-    - deb https://deb.nodesource.com/node_9.x stretch main
-    - deb-src https://deb.nodesource.com/node_9.x stretch main
+    - deb https://deb.nodesource.com/node_12.x stretch main
+    - deb-src https://deb.nodesource.com/node_12.x stretch main
+  when:
+    - ansible_facts['distribution_major_version'] == '9'
+
+- name: add node apt repositories
+  become: true
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    filename: "nodesource"
+  with_items:
+    - deb https://deb.nodesource.com/node_12.x buster main
+    - deb-src https://deb.nodesource.com/node_12.x buster main
+  when:
+    - ansible_facts['distribution_major_version'] == '10'
 
 - name: install essential packages and desktop environment
   become: true
