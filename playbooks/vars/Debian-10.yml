@@ -17,28 +17,26 @@ apt_packages:
   - build-essential
   - xclip
   - mlocate
-  - bzr
   - zsh
   - aria2
   - cinnamon-desktop-environment
-  - checkinstall
+  # - checkinstall
   - fcitx-table-wubi
   - fcitx-mozc
   - tar
   - unzip
   - python-apt
-  - clang-format-3.9
+  - clang-format
   - daemon
   - nmap
   - redis-server
   - stow
   - lnav
-  - realpath
+  - coreutils
   - nodejs
   - highlight
   - tree
   - shellcheck
-  - shutter
   - tilix
-  - name: emacs26
+  - name: emacs
     state: build-dep
