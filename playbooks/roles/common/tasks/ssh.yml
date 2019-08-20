@@ -17,5 +17,5 @@
     - has_ssh_config.stat.exists
   copy:
     src: ~/.ssh
-    dest: "{{ ansible_env.HOME }}/.ssh/"
+    dest: "{{ ansible_env.HOME }}/"
     mode: 0600
