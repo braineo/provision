@@ -2,16 +2,8 @@
 - name: install pip2 packages
   become: "{{ ansible_distribution != 'MacOSX' }}"
   pip:
-    name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('present') }}"
-    version: "{{ item.version | default(omit) }}"
-    executable: "{{ item.executable | default('pip2') }}"
-  with_items: "{{ pip2_packages }}"
+    name: "{{ pip2_packages }}"
 
 - name: install pip3 packages
   pip:
-    name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('present') }}"
-    version: "{{ item.version | default(omit) }}"
-    executable: "{{ item.executable | default('pip3') }}"
-  with_items: "{{ pip3_packages }}"
+    name: "{{ pip3_packages }}"
