@@ -6,7 +6,7 @@
     - vars/user.yml
 
   pre_tasks:
-    - include_vars: "vars/{{ ansible_distribution }}.yml"
+    - include_vars: "vars/{{ ansible_distribution }}-{{ ansible_facts['distribution_major_version'] }}.yml"
       tags: always
 
   roles:
