@@ -10,7 +10,7 @@
       tags: always
 
   roles:
+    - common
     - { role: debian, when: ansible_distribution == 'Debian' }
     - { role: macos, when: ansible_distribution == 'MacOSX'}
     - { role: arch, when: ansible_distribution == 'Archlinux'}
-    - common

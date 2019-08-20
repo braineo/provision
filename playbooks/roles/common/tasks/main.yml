@@ -5,8 +5,8 @@
     - ansible_host != "localhost"
 - import_tasks: pip.yml
   tags: [pip]
-- import_tasks: npm.yml
-  tags: [npm]
+# - import_tasks: npm.yml
+#   tags: [npm]
 - import_tasks: dotfiles.yml
   tags: [dotfiles]
 - import_tasks: font.yml
