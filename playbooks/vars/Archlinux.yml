@@ -29,6 +29,3 @@ pacman_packages:
   - emacs
   - vim
   - tilix
-
-extra_dotfiles:
-  - terminator

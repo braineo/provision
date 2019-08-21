@@ -40,3 +40,5 @@ apt_packages:
   - tilix
   - name: emacs
     state: build-dep
+
+extra_dotfiles: []

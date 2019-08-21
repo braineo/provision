@@ -3,8 +3,6 @@
   tags: [apt]
 - import_tasks: emacs.yml
   tags: [emacs]
-- import_tasks: terminator.yml
-  tags: [shell]
 - import_tasks: theme.yml
   tags: [theme]
 - import_tasks: font.yml
