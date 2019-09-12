@@ -7,10 +7,17 @@
 
   pre_tasks:
     - include_vars: "vars/{{ ansible_distribution }}-{{ ansible_facts['distribution_major_version'] }}.yml"
+      when: ansible_os_family == 'Debian'
+      tags: always
+    - include_vars: "vars/{{ ansible_distribution }}.yml"
+      when: ansible_os_family != 'Debian'
       tags: always
 
+  environment:
+    PATH: /usr/local/bin:{{ ansible_env.PATH }}
+
   roles:
+    - { role: macos, when: ansible_distribution == 'MacOSX'}
     - common
     - { role: debian, when: ansible_distribution == 'Debian' }
-    - { role: macos, when: ansible_distribution == 'MacOSX'}
     - { role: arch, when: ansible_distribution == 'Archlinux'}
