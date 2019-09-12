@@ -53,7 +53,6 @@ homebrew_cask_packages:
   - chromedriver
   - google-chrome
   - mattermost
-  - wireshark
   - dropbox
   - musicbrainz-picard
   - xld
@@ -62,8 +61,10 @@ homebrew_cask_packages:
   - yacreader
   - typora
   - iina
-  - mactex-no-gui
-  # - squirrel # require password interrupting install
+  # require password interrupting install
+  # - wireshark
+  # - squirrel
+  # - mactex-no-gui
 
 extra_dotfiles:
   - squirrel
