@@ -29,3 +29,7 @@ pacman_packages:
   - emacs
   - vim
   - tilix
+  - noto-fonts
+  - noto-fonts-cjk
+
+extra_dotfiles: []
