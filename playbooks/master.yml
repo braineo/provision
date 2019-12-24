@@ -18,6 +18,6 @@
 
   roles:
     - { role: macos, when: ansible_distribution == 'MacOSX'}
-    - common
     - { role: debian, when: ansible_distribution == 'Debian' }
     - { role: arch, when: ansible_distribution == 'Archlinux'}
+    - common
