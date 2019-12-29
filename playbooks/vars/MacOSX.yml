@@ -52,7 +52,6 @@ homebrew_cask_packages:
   - vnc-viewer
   - chromedriver
   - google-chrome
-  - mattermost
   - dropbox
   - musicbrainz-picard
   - xld
