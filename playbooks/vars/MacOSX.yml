@@ -3,16 +3,13 @@
 font_dir: /Library/Fonts
 
 homebrew_taps:
-  - caskroom/cask
-  - caskroom/fonts
-  - d12frosted/emacs-plus
+  - railwaycat/emacsmacport
   - buo/cask-upgrade
 
 homebrew_packages:
   - node
   - git
   - htop
-  - glances    # fancy but slow htop
   - tig
   - zsh
   - stow
@@ -33,33 +30,25 @@ homebrew_packages:
   - ncdu       # improved du
   - jq         # CLI json processor
   - httpie     # eaiser to use curl
-  - youtube-dl
+  # - youtube-dl # Taken down by DMCA
   - python
   - ipython
-  - python@2
-  - ipython@5
   - vim
-  - { name: emacs-plus, install_options: [without-spacemacs-icon] }
+  - gpg
 
 homebrew_cask_packages:
   - iterm2
-  - hyper
-  - caskroom/fonts/font-sourcecodepro-nerd-font
   - appcleaner
   - shadowsocksx-ng
-  - bathyscaphe
-  - skype
   - vnc-viewer
-  - chromedriver
   - google-chrome
   - dropbox
   - musicbrainz-picard
   - xld
-  - postman
   - sublime-text
   - yacreader
-  - typora
   - iina
+  - emacs-mac
   # require password interrupting install
   # - wireshark
   # - squirrel
